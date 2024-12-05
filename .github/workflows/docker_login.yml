@@ -35,8 +35,28 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest ]
     runs-on: ${{ matrix.os }}
-    needs:
-     - publish
     steps:
       - uses: actions/checkout@v2
       - run: echo "hello Test"
+  job1:
+    runs-on: ubuntu-latest
+    needs:
+         - publish
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "Hello world"
+        
+  job2:
+    runs-on: ubuntu-latest
+    needs:
+         - publish
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "Hello world"
+  job3:
+    runs-on: ubuntu-latest
+    needs:
+      - publish
+    steps:
+      - uses: actions/checkout@v2
+      - run: echo "Hello world"
